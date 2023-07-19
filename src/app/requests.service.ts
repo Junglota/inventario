@@ -13,6 +13,7 @@ export class RequestsService {
 
     return await this.http.post<any>(`${this.url}${endpoint}`,body)
   }
+
   getSessionInfo(){
     const datax : any = localStorage.getItem('response');
     const data = JSON.parse(datax);

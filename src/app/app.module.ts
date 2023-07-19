@@ -11,6 +11,7 @@ import { DashComponent } from './dash/dash.component';
 import { DashUserComponent } from './dash-user/dash-user.component';
 import { DashProductComponent } from './dash-product/dash-product.component';
 import { IndexStockComponent } from './index-stock/index-stock.component';
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 
 const appRoutes: Routes = [
   {path: '',component:PaginaPrincipalComponent},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   {path: 'usuarios',component:DashUserComponent},
   {path: 'productos',component:DashProductComponent},
   {path: 'stock',component:IndexStockComponent},
+  {path: 'recuperacion',component:RecuperacionComponent},
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     DashComponent,
     DashUserComponent,
     DashProductComponent,
-    IndexStockComponent
+    IndexStockComponent,
+    RecuperacionComponent
   ],
   imports: [
     BrowserModule,

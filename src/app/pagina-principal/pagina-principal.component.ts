@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { NgForm} from '@angular/forms';
 import Swal from 'sweetalert2';
 import { TYPE } from './values.constants';
-import { RequestsService } from '../requests.service';
 import { Router } from '@angular/router';
+import { RequestsService } from '../requests.service';
 
 //import { LoginService } from '../login.service';
 
@@ -15,18 +15,19 @@ import { Router } from '@angular/router';
 })
 export class PaginaPrincipalComponent{
   endpoint:string = "api/Login"
+
   Name:any="";
 
-
-
-  constructor(private request: RequestsService,private Router:Router){}
+  constructor(private request:RequestsService,private Router:Router){}
 
 
   async login(form:NgForm){
+
     const body={
       username:`${form.value.user}`,
       password:`${form.value.password}`
     };
+
     (await this.request.login(body,this.endpoint)).subscribe(response =>{
       if ( response.jwtToken) {
 
@@ -42,12 +43,15 @@ export class PaginaPrincipalComponent{
         })
           localStorage.setItem('response',JSON.stringify(response))
           console.log(localStorage.getItem('response'))
+          //------------------------------------------------------
           const datax : any = localStorage.getItem('response');
           const data = JSON.parse(datax);
-          console.log(data.jwtToken);
+          console.log(data.correo);
+          //-------------------------------------------------------
           this.Router.navigate(['/dash'])
       }
       else{
+        console.log("incorrecto")
         Swal.fire({
           toast: true,
         position: 'top',
